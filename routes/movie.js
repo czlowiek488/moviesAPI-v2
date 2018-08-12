@@ -20,7 +20,5 @@ router.get('/'
     }
 )
 
-router.post('/')
-
 export default router
 
