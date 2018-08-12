@@ -1,0 +1,47 @@
+{
+  "name": "firstapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/starter",
+    "flow": "flow",
+    "build": "babel src/ -d lib/",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.3",
+    "debug": "^3.1.0",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "express-validator": "^5.3.0",
+    "mongoose": "^5.2.5",
+    "morgan": "~1.9.0",
+    "node-fetch": "^2.2.0",
+    "uniqid": "^5.0.3",
+    "validator": "^10.5.0"
+  },
+  "babel": {
+    "plugins": [
+      "syntax-async-functions",
+      "transform-async-to-generator"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-syntax-decorators": "^6.13.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-decorators": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-register": "^6.26.0",
+    "flow-bin": "^0.76.0"
+  }
+}

@@ -1,0 +1,12 @@
+[ignore]
+'./node_modules/'
+[include]
+routes/*
+my_modules/*
+[libs]
+
+[lints]
+
+[options]
+
+[strict]

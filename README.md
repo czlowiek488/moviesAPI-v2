@@ -1,0 +1,3 @@
+## Credits
+
+**Author:** ***Łukasz Klejszta***
