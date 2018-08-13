@@ -1,25 +1,21 @@
 import express from 'express'
-import logger from 'morgan'
-import path from 'path'
-import bodyParser from 'body-parser'
-import mongoose from 'mongoose'
-import hbs from 'express-handlebars'
-import dotenv from 'dotenv'
-dotenv.load()
+import 'express-async-errors'
+import routes from './startup/routes'
+import errors from './startup/errors'
+import database from './startup/database'
+import middlewares from './startup/middlewares'
+import envValidator from './startup/envValidator.js'
 
-import movie from './routes/movie'
-import errors from './middlewares/error'
-
-mongoose.connect(`mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`, { useNewUrlParser: true })
+envValidator()
+errors()
+database()
 
 const app = express()
+middlewares(app)
+routes(app)
 
-app.use(logger('dev'))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+if(app.get('env') == 'development') {
+    console.log(`Server listening on ${process.env.PORT}`)
+}
 
-app.use((req, res, next) => next(404))
-app.use('/movie', movie)
-app.use(errors)
-console.log(`Server listening on ${process.env.PORT}`)
 export default app

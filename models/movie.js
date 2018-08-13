@@ -26,7 +26,5 @@ export default mongoose.model('movie', new mongoose.Schema({
     BoxOffice: {type: String, required: true},
     Production: {type: String, required: true},
     Website: {type: String, required: true},
-    Response: {type: String, required: true, select: false},
-
-    Comments: {type: Array, required: true}
+    Response: {type: String, required: true, select: false}
 }))
