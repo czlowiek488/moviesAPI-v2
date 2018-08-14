@@ -9,11 +9,11 @@ router.post('/', async (req, res, next) => {
     const {error} = Joi.validate(req.body, title)
     if(error) throw Error('Bad Request')
     const url = `http://www.omdbapi.com/?t=${req.body.title}&apikey=${process.env.OMDBAPI_KEY}`
-    const data = await fetch(url)
-    const movie = await data.json()
+        , data = await fetch(url)
+        , movie = await data.json()
     if(movie.Response != "True") throw Error('Not Found')
-    await dbMovie.update({"imdbID": movie.imdbID}, movie, {upsert: true})
     res.json(movie)
+    await dbMovie.update({"imdbID": movie.imdbID}, movie, {upsert: true})
 })
 
 router.get('/', async (req, res, next) => {

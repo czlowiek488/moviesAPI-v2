@@ -1,12 +1,11 @@
 {
-  "name": "firstapp",
+  "name": "moviesv2",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/starter",
     "flow": "flow",
-    "build": "babel src/ -d lib/",
-    "prepublish": "npm run build"
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
@@ -22,7 +21,8 @@
     "morgan": "~1.9.0",
     "node-fetch": "^2.2.0",
     "uniqid": "^5.0.3",
-    "validator": "^10.5.0"
+    "validator": "^10.5.0",
+    "winston": "^3.0.0"
   },
   "babel": {
     "plugins": [
@@ -44,6 +44,8 @@
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
     "babel-register": "^6.26.0",
-    "flow-bin": "^0.76.0"
+    "flow-bin": "^0.76.0",
+    "jest": "^23.5.0",
+    "supertest": "^3.1.0"
   }
 }

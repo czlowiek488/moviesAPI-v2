@@ -1,15 +1,15 @@
 import winston from 'winston'
 
 export default (err, req, res, next) => {
-    if(app.get('env') === 'development') console.log(err.message)
+    const time = new Date()
     if(err.message === 'Not Found'){ 
-        winston.info(err.message, err)
+        winston.info(err.message, {err, time, method: req.method, url: req.originalUrl})
         res.status( 404 ).json({message: err.message})
     } else if(err.message === 'Bad Request') {
-        winston.info(err.message, err)
+        winston.info(err.message, {err, time, method: req.method, url: req.originalUrl})
         res.status( 400 ).json({message: err.message})
     } else {
-        winston.error(err.message, err)
+        winston.info(err.message, {err, time, method: req.method, url: req.originalUrl})
         res.status( 500 ).json({message: 'Internal Server Error'})
     }
 }

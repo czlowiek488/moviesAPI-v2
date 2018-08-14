@@ -28,6 +28,6 @@ server.listen(port)
 server.on('error', (error) => { onError(error, port) })
 server.on('listening', () => { onListening(server.address()) })
 
-
+export default server
 
 

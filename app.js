@@ -1,5 +1,7 @@
 import express from 'express'
 import 'express-async-errors'
+import winston from 'winston'
+
 import routes from './startup/routes'
 import errors from './startup/errors'
 import database from './startup/database'
@@ -15,7 +17,7 @@ middlewares(app)
 routes(app)
 
 if(app.get('env') == 'development') {
-    console.log(`Server listening on ${process.env.PORT}`)
+    winston.info(`Server listening on ${process.env.PORT}`)
 }
 
 export default app
