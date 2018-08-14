@@ -3,11 +3,20 @@
 movie REST API database interacting with external API
 
 ## Installation
-
-You have to set few things in config.json file:
-* database - your mongoDB database settings
-* serverPort - your port for this server by default 8080 or environment port
-* apiKey - your own api key for http://www.omdbapi.com API
+* You have to set few things in your environment variables: 
+    * database
+        - DB_USERNAME - database username
+        - DB_PASSWORD - database user password
+        - DB_HOST - database host
+        - DB_PORT - database port
+        - DB_NAME - database name
+    * server
+        - PORT - server port
+        - NODE_ENV - production or development
+    * third party
+        - OMDBAPI_KEY - api key from http://www.omdbapi.com
+* run command
+    * npm install - it will install all required packages
 
 ## Usage
 * POST /movies            
