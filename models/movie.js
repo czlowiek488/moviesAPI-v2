@@ -4,7 +4,7 @@ export default mongoose.model('movie', new mongoose.Schema({
     _id: {type: mongoose.Schema.ObjectId, default: mongoose.Types.ObjectId, select: false},
     __v: {type: Number, select: false},
     Title: {type: String, required: true},
-    Year: {type: String, required: true},
+    Year: {type: Number, required: true},
     Rated: {type: String, required: true},
     Released: {type: String, required: true},
     Runtime: {type: String, required: true},
@@ -18,7 +18,7 @@ export default mongoose.model('movie', new mongoose.Schema({
     Poster: {type: String, required: true},
     Ratings: {type: Array, required: true},
     Metascore: {type: String, required: true},
-    imdbRating: {type: String, required: true},
+    imdbRating: {type: Number, required: true},
     imdbVotes: {type: String, required: true},
     imdbID: {type: String, required: true, unique: true},
     Type: {type: String, required: true},
@@ -26,5 +26,5 @@ export default mongoose.model('movie', new mongoose.Schema({
     BoxOffice: {type: String, required: true},
     Production: {type: String, required: true},
     Website: {type: String, required: true},
-    Response: {type: String, required: true, select: false}
+    Response: {type: String, required: true}
 }))

@@ -6,4 +6,5 @@ export default app => {
     app.use('/movies', movies)
     app.use('/comment', comment)
     app.use(errors)
+    app.use( (req,res) => {res.status(404).json({message: 'Not Found'})} )
 }
