@@ -47,6 +47,16 @@ movie REST API database interacting with external API
     - Return all comments
     - optional in query   
          - imdbID: {imdbIDOfMovie} -Allow filtering by movie imdbID
+## Error messages
+ - 404  -Not Found
+    - 'Movie not found'
+- 400  -Bad Request
+     - 'Request sorting query is invalid'
+     - 'Request body is not valid'
+- 503  -Service Unavailable
+     - 'Third-party server error'
+- 500 - Internal Server Error
+     - 'Internal Server Error'
 
 ## Credits
 
