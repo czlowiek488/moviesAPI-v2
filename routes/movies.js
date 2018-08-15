@@ -7,11 +7,11 @@ const router = express.Router()
 
 router.post('/', async (req, res, next) => {
     const {error} = Joi.validate(req.body, title)
-    if(error) throw Error('Bad Request')
+    if(error) throw Error('Request body is not valid')
     const url = `http://www.omdbapi.com/?t=${req.body.title}&apikey=${process.env.OMDBAPI_KEY}`
-        , data = await fetch(url).catch(err=> {if(err) throw Error('Service Unavailable')})
+        , data = await fetch(url).catch(err=> {if(err) throw Error('Third-party server error')})
         , movie = await data.json()
-    if(movie.Response != "True") throw Error('Not Found')
+    if(movie.Response != "True") throw Error('Movie not found')
     if(isNaN(movie.Year)) movie.Year = 0
     if(isNaN(movie.imdbRating)) movie.imdbRating = 0
     res.json(movie)
@@ -23,9 +23,9 @@ router.get('/', async (req, res, next) => {
     if(undefined != sort){
       sort = sort.split(',')
       sort.forEach( (element, index) => { 
-        if(element.indexOf(':') == -1 || element.split(':').length > 2) throw Error(`Bad Request`)
+        if(element.indexOf(':') == -1 || element.split(':').length > 2) throw Error(`Request sorting query is invalid`)
         sort[index] = element.split(':')
-        if(sort[index][1] != -1 && sort[index][1] != 1) throw Error(`Bad Request`)
+        if(sort[index][1] != -1 && sort[index][1] != 1) throw Error(`Request sorting query is invalid`)
         })
     }
     const filter = {  
