@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/starter",
+    "start": "node ./bin/starter",
     "flow": "flow",
     "test": "jest --watchAll"
   },
